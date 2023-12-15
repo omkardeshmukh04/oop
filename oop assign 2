@@ -1,0 +1,83 @@
+Aim : Identify commonalities and differences between publication, Book and 
+magazine classes. Title, Prices , copies are common instance variable and 
+saleCopy is common method . The difference are book class has author and 
+ordercopies(). Magazine class has orderQty, currentissue, recieveissue(). Write 
+a program to find how many copies of the given books are ordered and display 
+total sale of publication. 
+//******************Publication.java********************//
+public class Publication
+{
+ public String title;
+ public double price;
+ public int copies;
+//Default constructor to assign data member
+ public Publication()
+ {
+ this.title=null;
+ this.price=0;
+ this.copies=0;
+ }
+ public Publication(String title,double price,int copies)
+ {
+ this.title=title;
+ this.price=price;
+ this.copies=copies;
+ }
+ public void sellcopy(int qty)
+ {
+ System.out.println("Total Publication sell:Rs." + (qty * price));
+ }
+}
+//********************Book.java*********************//
+public class Book extends Publication
+{
+ private String author;
+//Define constructor to assign data mamber
+ public Book()
+ {
+ super();
+ this.author=null;
+ }
+ public Book(String title,double price,int copies,String author)
+ {
+ super(title,price,copies);
+ this.author=author;
+ }
+//method sellcopy() of superclass publication is overridden
+ public void sellcopy(int qty)
+ {
+ System.out.println("Total Book sell:Rs." + (qty*price));
+ }
+}
+//*********************Magazine.java********************//
+public class Magazine extends Publication
+{
+ private int orderQty;
+ private String currIssue;
+//Default constructor to assign data member
+ public Magazine(String title,double price,int copies,int orderQty,String 
+currIssue)
+ {
+ super(title,price,copies);
+ this.orderQty = orderQty;
+ this.currIssue = currIssue;
+ }
+//method sellcopy() of superclass Publication is overridden
+ public void sellcopy(int qty)
+ {
+ System.out.println("Total Magazine sell:Rs." + (qty*price));
+ }
+}
+//*******************MainClass.java******************//
+public class MainClass
+{
+ public static void main(String[] args)
+ {
+ Publication obj = new Publication("java",200,5);
+ obj.sellcopy(2);
+ Publication obj1= new Book("java",200,5,"James Gaoslin");
+ obj1.sellcopy(3);
+ Publication obj3 = new Magazine("java",200,5,6,"sept");
+ obj3.sellcopy(4);
+ }
+}

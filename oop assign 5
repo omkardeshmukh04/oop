@@ -1,0 +1,104 @@
+Aim: To understand Interface in Java
+Problem Statement:- Design and develop a context for given case study and implement an
+interface for Vehicles Consider the example of vehicles like bicycle, car, and bike. All Vehicles have
+common functionalities such as Gear Change, Speed up and apply breaks . Make an interface and
+put all these common functionalities. Bicycle, Bike, Car classes should be implemented for all these
+functionalities in their own class in their own way.
+************Vehicle.java***************
+public interface Vehicle
+{ void changeGear(int
+x); void speedUp(int x);
+void applyBrakes(int x);
+}
+*************Bicycle.java**************
+public class Bicycle implements Vehicle
+{ int
+speed;
+int gear;
+@Override
+public void changeGear(int Gear)
+{
+gear=Gear;
+}
+@Override
+public void speedUp(int increment)
+{
+speed=speed+increment;
+}
+@Override
+public void applyBrakes(int decrement)
+{
+speed=speed-decrement;
+}
+public void statusDisplay()
+{
+System.out.println("Gear:"+gear+" speed : "+speed);
+}
+}
+*************** Bike.java**************
+public class Bike implements Vehicle
+{ int
+speed; int
+gear;
+@Override
+public void changeGear(int Gear)
+{ gear=Gear;
+}
+@Override
+public void speedUp(int increment)
+{
+speed=speed+increment;
+}
+@Override
+public void applyBrakes(int decrement)
+{ speed=speed-decrement;
+}
+public void statusDisplay()
+{
+System.out.println("Gear:"+gear+" speed : "+speed);
+}
+}
+*************Car.java****************
+public class Car implements Vehicle
+{ int
+speed; int
+gear;
+@Override
+public void changeGear(int Gear)
+{ gear=Gear;
+}
+@Override
+public void speedUp(int increment)
+{
+speed=speed+increment;
+}
+@Override
+public void applyBrakes(int decrement)
+{ speed=speed-decrement;
+}
+public void statusDisplay()
+{
+System.out.println("Gear:"+gear+" speed : "+speed);
+}
+ ********************InterfaceDemo.java************************
+public class InterfaceDemo
+{
+public static void main(String[] args)
+{
+System.out.println("\nState's of all Vehicle");
+Bicycle b=new Bicycle(); b.changeGear(5);
+b.speedUp(10);
+b.applyBrakes(2);
+System.out.println("\nBicycle State : ");
+b.statusDisplay();
+Bike bk=new Bike();
+bk.changeGear(29); bk.speedUp(45);
+bk.applyBrakes(34);
+System.out.println("\nBike State : ");
+bk.statusDisplay();
+Car c=new Car();
+c.changeGear(60);
+c.speedUp(50);
+c.applyBrakes(36);
+System.out.println("\nCar State : "); c.statusDisplay();
+}
